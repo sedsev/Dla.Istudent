@@ -1,0 +1,4 @@
+dla_istudent_user:
+    resource: "@DlaIstudentUserBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,7 @@
+parameters:
+#    dla_istudent_user.example.class: DlaIstudent\UserBundle\Example
+
+services:
+#    dla_istudent_user.example:
+#        class: %dla_istudent_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
