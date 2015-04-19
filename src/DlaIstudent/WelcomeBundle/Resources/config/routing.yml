@@ -1,0 +1,3 @@
+dla_istudent_welcome_homepage:
+    path:     /
+    defaults: { _controller: DlaIstudentWelcomeBundle:Welcome:index }

@@ -36,6 +36,12 @@ class Image
     private $alt;
     
     /**
+     * @ORM\OneToMany(targetEntity="DlaIstudent\UserBundle\Entity\ImageActivity", mappedBy="image")
+     */
+    
+    private $activities;
+    
+    /**
      * @ var FileUpload
      */
     private $fileUpload;
@@ -95,5 +101,45 @@ class Image
     public function getAlt()
     {
         return $this->alt;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->activities = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add activities
+     *
+     * @param \DlaIstudent\UserBundle\Entity\ImageActivity $activities
+     * @return Image
+     */
+    public function addActivity(\DlaIstudent\UserBundle\Entity\ImageActivity $activities)
+    {
+        $this->activities[] = $activities;
+
+        return $this;
+    }
+
+    /**
+     * Remove activities
+     *
+     * @param \DlaIstudent\UserBundle\Entity\ImageActivity $activities
+     */
+    public function removeActivity(\DlaIstudent\UserBundle\Entity\ImageActivity $activities)
+    {
+        $this->activities->removeElement($activities);
+    }
+
+    /**
+     * Get activities
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getActivities()
+    {
+        return $this->activities;
     }
 }

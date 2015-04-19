@@ -135,8 +135,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // dla_istudent_welcome_homepage
+        if (rtrim($pathinfo, '/') === '/welcome') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'dla_istudent_welcome_homepage');
+            }
+
+            return array (  '_controller' => 'DlaIstudent\\WelcomeBundle\\Controller\\WelcomeController::indexAction',  '_route' => 'dla_istudent_welcome_homepage',);
+        }
+
         // dla_istudent_user_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/user/hello') && preg_match('#^/user/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'dla_istudent_user_homepage')), array (  '_controller' => 'DlaIstudent\\UserBundle\\Controller\\DefaultController::indexAction',));
         }
 

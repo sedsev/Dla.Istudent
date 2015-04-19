@@ -45,7 +45,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=60)
+     * @ORM\Column(name="email", type="string", length=60, unique=true)
      */
     private $email;
 
@@ -62,6 +62,21 @@ class User
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="DlaIstudent\UserBundle\Entity\Rigth", mappedBy="user")
+     */
+    private $rigths;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="DlaIstudent\UserBundle\Entity\Activity", mappedBy="user")
+     */
+    private $activities;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="DlaIstudent\UserBundle\Entity\Image")
+     */
+    private $image;
 
     /**
      * @var boolean
@@ -360,5 +375,102 @@ class User
     public function getPlaceOfBorn()
     {
         return $this->placeOfBorn;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rigths = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->activities = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add rigths
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Rigth $rigths
+     * @return User
+     */
+    public function addRigth(\DlaIstudent\UserBundle\Entity\Rigth $rigths)
+    {
+        $this->rigths[] = $rigths;
+
+        return $this;
+    }
+
+    /**
+     * Remove rigths
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Rigth $rigths
+     */
+    public function removeRigth(\DlaIstudent\UserBundle\Entity\Rigth $rigths)
+    {
+        $this->rigths->removeElement($rigths);
+    }
+
+    /**
+     * Get rigths
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRigths()
+    {
+        return $this->rigths;
+    }
+
+    /**
+     * Add activities
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Activity $activities
+     * @return User
+     */
+    public function addActivity(\DlaIstudent\UserBundle\Entity\Activity $activities)
+    {
+        $this->activities[] = $activities;
+
+        return $this;
+    }
+
+    /**
+     * Remove activities
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Activity $activities
+     */
+    public function removeActivity(\DlaIstudent\UserBundle\Entity\Activity $activities)
+    {
+        $this->activities->removeElement($activities);
+    }
+
+    /**
+     * Get activities
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getActivities()
+    {
+        return $this->activities;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Image $image
+     * @return User
+     */
+    public function setImage(\DlaIstudent\UserBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \DlaIstudent\UserBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

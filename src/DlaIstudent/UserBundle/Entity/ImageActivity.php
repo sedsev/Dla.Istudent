@@ -34,6 +34,12 @@ class ImageActivity
      * @ORM\Column(name="urlOfLastFile", type="string", length=120)
      */
     private $urlOfLastFile;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DlaIstudent\UserBundle\Entity\Image", inversedBy="activities")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $image;
 
     /**
      * @var string
@@ -120,5 +126,28 @@ class ImageActivity
     public function getUrlOfNewFile()
     {
         return $this->urlOfNewFile;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Image $image
+     * @return ImageActivity
+     */
+    public function setImage(\DlaIstudent\UserBundle\Entity\Image $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \DlaIstudent\UserBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

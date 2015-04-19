@@ -16,16 +16,14 @@ class UserType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('surname')
-            ->add('phoneNumeber')
-            ->add('email')
-            ->add('dateOfBirth')
-            ->add('password')
-            ->add('connexionState')
-            ->add('accountState')
-            ->add('sex')
-            ->add('adress')
-            ->add('placeOfBorn')
+            ->add('surname', 'text')
+            ->add('phoneNumeber', 'text')
+            ->add('email','text')
+            ->add('dateOfBirth', 'date')
+            ->add('password', 'text')
+            ->add('sex', 'text')
+            ->add('adress', 'text')
+            ->add('placeOfBorn', 'text')
         ;
     }
     

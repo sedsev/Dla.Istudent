@@ -41,6 +41,12 @@ class Operation
      * @ORM\Column(name="dateOfBegin", type="datetime")
      */
     private $dateOfBegin;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="DlaIstudent\UserBundle\Entity\Activity", inversedBy="operations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $activity;
 
     /**
      * @var \DateTime
@@ -150,5 +156,28 @@ class Operation
     public function getDateOfEnd()
     {
         return $this->dateOfEnd;
+    }
+
+    /**
+     * Set activity
+     *
+     * @param \DlaIstudent\UserBundle\Entity\Activity $activity
+     * @return Operation
+     */
+    public function setActivity(\DlaIstudent\UserBundle\Entity\Activity $activity)
+    {
+        $this->activity = $activity;
+
+        return $this;
+    }
+
+    /**
+     * Get activity
+     *
+     * @return \DlaIstudent\UserBundle\Entity\Activity 
+     */
+    public function getActivity()
+    {
+        return $this->activity;
     }
 }
