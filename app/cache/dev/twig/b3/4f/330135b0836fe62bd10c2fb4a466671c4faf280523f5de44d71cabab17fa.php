@@ -7,20 +7,41 @@ class __TwigTemplate_b34f330135b0836fe62bd10c2fb4a466671c4faf280523f5de44d71caba
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("DlaIstudentWelcomeBundle::index.html.twig");
+        $this->parent = $this->env->loadTemplate("DlaIstudentWelcomeBundle::template.html.twig");
 
         $this->blocks = array(
+            'title_navigation1' => array($this, 'block_title_navigation1'),
+            'content_navigation1' => array($this, 'block_content_navigation1'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "DlaIstudentWelcomeBundle::index.html.twig";
+        return "DlaIstudentWelcomeBundle::template.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title_navigation1($context, array $blocks = array())
+    {
+        echo "Explore";
+    }
+
+    // line 3
+    public function block_content_navigation1($context, array $blocks = array())
+    {
+        // line 4
+        echo "    <ul>
+        <li><a href=\"";
+        // line 5
+        echo $this->env->getExtension('routing')->getPath("dla_istudent_user_homepage");
+        echo "\">new account</a></li>
+    </ul>
+";
     }
 
     public function getTemplateName()
@@ -35,6 +56,6 @@ class __TwigTemplate_b34f330135b0836fe62bd10c2fb4a466671c4faf280523f5de44d71caba
 
     public function getDebugInfo()
     {
-        return array ();
+        return array (  41 => 5,  38 => 4,  35 => 3,  29 => 2,);
     }
 }

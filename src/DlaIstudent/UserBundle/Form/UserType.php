@@ -17,13 +17,15 @@ class UserType extends AbstractType
         $builder
             ->add('name', 'text')
             ->add('surname', 'text')
-            ->add('phoneNumeber', 'text')
+            ->add('phoneNumber', 'text')
             ->add('email','text')
             ->add('dateOfBirth', 'date')
-            ->add('password', 'text')
+            ->add('password', 'password')
+            ->add('verifyPassword', 'password')
             ->add('sex', 'text')
             ->add('adress', 'text')
             ->add('placeOfBorn', 'text')
+            ->add('image', new ImageType())
         ;
     }
     

@@ -1,1 +1,5 @@
-Hello {{ name }}!
+{% extends "DlaIstudentUserBundle::template.html.twig" %}
+{% block prinipal_navigation %}bonjour {{student.cycle}} {{student.level}}{% endblock %}
+{% block site_content %}
+    <h1>{{student.matricule}}</h1>
+{% endblock%}

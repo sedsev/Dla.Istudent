@@ -1,1 +1,7 @@
-{% extends "DlaIstudentWelcomeBundle::index.html.twig" %}
+{% extends "DlaIstudentWelcomeBundle::template.html.twig" %}
+{% block title_navigation1 %}Explore{% endblock %}
+{% block content_navigation1 %}
+    <ul>
+        <li><a href="{{path('dla_istudent_user_homepage')}}">new account</a></li>
+    </ul>
+{% endblock %}

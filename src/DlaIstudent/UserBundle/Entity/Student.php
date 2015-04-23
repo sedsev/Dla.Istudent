@@ -180,4 +180,69 @@ class Student
     {
         return $this->user;
     }
+    public function getName(){
+        return $this->user->getName();
+    }
+    public function setName($name) {
+        $this->user->setName($name);
+    }
+    
+    public function setSurname($surname)
+    {
+        $this->user->setSurmame($surname);
+
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->user->getSurname();
+    }
+
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->user->setEmail($email);
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->user->getEmail();
+    }
+
+    /**
+     * Set dateOfBirth
+     *
+     * @param \DateTime $dateOfBirth
+     */
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->user->setDateOfBirth($dateOfBirth);
+    }
+
+    /**
+     * Get dateOfBirth
+     *
+     * @return \DateTime 
+     */
+    public function getDateOfBirth()
+    {
+        return $this->user->getDateOfBirth();
+    }
+
+    
 }

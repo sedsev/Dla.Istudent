@@ -1,1 +1,10 @@
-Hello {{ name }}!
+{% extends "DlaIstudentUserBundle::template.html.twig" %}
+{% block site_content %}
+    <div class="well" sytle="margin-top: 10px">
+        <form class="well-lg center-block col-lg-6" method="post" {{form_enctype(form)}}>
+            <legend>Register</legend>
+            {{ form_widget(form) }}
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+{% endblock%}

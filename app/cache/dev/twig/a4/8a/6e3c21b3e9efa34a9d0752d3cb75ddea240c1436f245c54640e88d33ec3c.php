@@ -32,7 +32,10 @@ class __TwigTemplate_a48a6e3c21b3e9efa34a9d0752d3cb75ddea240c1436f245c54640e88d3
 \t\t<div class=\"sidebar\">
           <div class=\"sidebar_item\">
             <h2>Account</h2>
-            <p><a href=\"#\">create a new student account</a>. Please have a look around, any feedback is much appreciated.</p>
+            <p><a href=\"";
+        // line 7
+        echo $this->env->getExtension('routing')->getPath("dla_istudent_user_homepage");
+        echo "\">create a new student account</a>. Please have a look around, any feedback is much appreciated.</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->     \t\t
 \t\t<div class=\"sidebar\">
@@ -77,6 +80,6 @@ class __TwigTemplate_a48a6e3c21b3e9efa34a9d0752d3cb75ddea240c1436f245c54640e88d3
 
     public function getDebugInfo()
     {
-        return array (  31 => 3,  28 => 2,);
+        return array (  37 => 7,  31 => 3,  28 => 2,);
     }
 }

@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="DlaIstudent\UserBundle\Entity\ImageRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Image
 {
@@ -22,6 +23,7 @@ class Image
     private $id;
 
     /**
+     * this is the file extension
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=120)
@@ -44,7 +46,13 @@ class Image
     /**
      * @ var FileUpload
      */
-    private $fileUpload;
+    public $photo;
+    
+    /**
+     *
+     * @var type 
+     */
+    private $lastFileExtension;
 
 
     /**
@@ -68,6 +76,71 @@ class Image
         $this->url = $url;
 
         return $this;
+    }
+    
+    public function setPhoto(\Symfony\Component\HttpFoundation\File\UploadedFile $photo = null)
+    {
+        $this->photo = $photo;
+        if(null !== $this->url){
+            $this ->registerSuppressFileName();
+            $this -> url = null;
+            $this -> alt = null;
+        }
+    }
+    
+    /**
+     * 
+     * @return type
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function loadImage() {
+        if(null == $this->photo){
+            return;
+        }
+        $this -> url = $this -> photo -> guessExtension(); 
+        $this -> alt = $this -> photo -> getClientOriginalName();
+    }
+    
+    /**
+     * 
+     * @return type
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function saveFile() {
+        if(null === $this->photo){
+            return;
+        }
+        if(null !== $this->lastFileExtension){
+            $this->suppressImage();
+        }
+        $this->photo->move($this->getUploadsRootDir(), $this->id.'.'.$this->url);
+    }
+    
+    /**
+     * @ORM\PreRemove()
+     */
+    public function registerSuppressFileName() {
+        $this -> lastFileExtensionileExtension = $this->url;
+    }
+    
+    /**
+     * @ORM\PostRemove()
+     */
+    public function suppressImage() {
+        $suppressFileName = $this->getUploadsRootDir().'/'.  $this->id.'.'.$this->lastFileExtension;
+            if(file_exists($suppressFileName)){
+                unlink($suppressFileName);
+            }
+    }
+    
+    public function getUploadsRootDir() {
+        return __DIR__.'..\..\..\web'.$this->getUploadsDir();
+    }
+    
+    public function getUploadsDir() {
+        return 'uploads\image';
     }
 
     /**

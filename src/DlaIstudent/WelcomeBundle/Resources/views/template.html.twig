@@ -1,37 +1,17 @@
 {% extends "::layout.html.twig" %}
 {% block prinipal_navigation %}
-	  <div class="sidebar_container">       
-		<div class="sidebar">
-          <div class="sidebar_item">
-            <h2>Account</h2>
-            <p><a href="#">create a new student account</a>. Please have a look around, any feedback is much appreciated.</p>
-          </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->     		
-		<div class="sidebar">
-          <div class="sidebar_item">
-            <h2>Latest Update</h2>
-            <h3>February 2013</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>         
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->		
-		<div class="sidebar">
-          <div class="sidebar_item">
-            <h3>January 2013</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>         
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->
-		<div class="sidebar">
-          <div class="sidebar_item">
-            <h3>December 2012</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>         
-		  </div><!--close sidebar_item--> 
-        </div><!--close sidebar-->  		
+    <div class="sidebar_container">
+    {% block navigation1 %}
         <div class="sidebar">
           <div class="sidebar_item">
-            <h2>Contact</h2>
-            <p>Phone: +44 (0)1234 567891</p>
-            <p>Email: <a href="mailto:info@youremail.co.uk">info@youremail.co.uk</a></p>
+            <h2>{% block title_navigation1 %}{% endblock %}</h2>
+            <p>{% block content_navigation1 %}{% endblock %}</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
-       </div><!--close sidebar_container-->	
-	{% endblock %}
+    {% endblock %}
+    {% block navigation2 %}{% endblock %}
+    {% block navigation3 %}{% endblock %}
+    {% block navigation4 %}{% endblock %}
+    {% block navigation5 %}{% endblock %}
+    </div><!--close sidebar_container-->
+{% endblock %}

@@ -145,8 +145,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // dla_istudent_user_homepage
-        if (0 === strpos($pathinfo, '/user/hello') && preg_match('#^/user/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'dla_istudent_user_homepage')), array (  '_controller' => 'DlaIstudent\\UserBundle\\Controller\\DefaultController::indexAction',));
+        if ($pathinfo === '/user/register') {
+            return array (  '_controller' => 'DlaIstudent\\UserBundle\\Controller\\StudentController::registerStudentAction',  '_route' => 'dla_istudent_user_homepage',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

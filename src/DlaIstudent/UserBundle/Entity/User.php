@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="DlaIstudent\UserBundle\Entity\UserRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class User
 {
@@ -38,9 +39,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="phoneNumeber", type="string", length=20)
+     * @ORM\Column(name="phoneNumber", type="string", length=20)
      */
-    private $phoneNumeber;
+    private $phoneNumber;
 
     /**
      * @var string
@@ -63,8 +64,10 @@ class User
      */
     private $password;
     
+    public $verifyPassword;
+    
     /**
-     * @ORM\OneToMany(targetEntity="DlaIstudent\UserBundle\Entity\Rigth", mappedBy="user")
+     * @ORM\ManyToMany(targetEntity="DlaIstudent\UserBundle\Entity\Rigth", cascade={"persist", "remove"})
      */
     private $rigths;
     
@@ -74,7 +77,7 @@ class User
     private $activities;
     
     /**
-     * @ORM\OneToOne(targetEntity="DlaIstudent\UserBundle\Entity\Image")
+     * @ORM\OneToOne(targetEntity="DlaIstudent\UserBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $image;
 
@@ -136,6 +139,14 @@ class User
 
         return $this;
     }
+    
+    /**
+     * @ORM\PrePersist()
+     */
+    public function updateUserBeforeSaved() {
+        $this->accountState = FALSE;
+        $this->connexionState = FALSE;
+    }
 
     /**
      * Get name
@@ -170,28 +181,6 @@ class User
         return $this->surname;
     }
 
-    /**
-     * Set phoneNumeber
-     *
-     * @param string $phoneNumeber
-     * @return User
-     */
-    public function setPhoneNumeber($phoneNumeber)
-    {
-        $this->phoneNumeber = $phoneNumeber;
-
-        return $this;
-    }
-
-    /**
-     * Get phoneNumeber
-     *
-     * @return string 
-     */
-    public function getPhoneNumeber()
-    {
-        return $this->phoneNumeber;
-    }
 
     /**
      * Set email
@@ -472,5 +461,28 @@ class User
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     * @return User
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return string 
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
     }
 }

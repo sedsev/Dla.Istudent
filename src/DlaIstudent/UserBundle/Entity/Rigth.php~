@@ -41,13 +41,6 @@ class Rigth
      * @ORM\Column(name="type", type="string", length=30)
      */
     private $type;
-    
-    /**
-     * 
-     * @ORM\ManyToOne(targetEntity="DlaIstudent\UserBundle\Entity\User", inversedBy="rigths")
-     */
-    
-    private  $user;
 
 
     /**
@@ -129,26 +122,4 @@ class Rigth
         return $this->type;
     }
 
-    /**
-     * Set user
-     *
-     * @param \DlaIstudent\UserBundle\Entity\User $user
-     * @return Rigth
-     */
-    public function setUser(\DlaIstudent\UserBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \DlaIstudent\UserBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }
