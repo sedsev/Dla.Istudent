@@ -19,11 +19,11 @@
 	  <nav>
 		<div id="menubar">
           <ul id="nav">
-            <li {% block prinipal_vue1 %}class="current"{% endblock %}><a href="index.html">Home</a></li>
-            <li {% block prinipal_vue2 %}{% endblock %}><a href="ourwork.html">Our Work</a></li>
-            <li {% block prinipal_vue3 %}{% endblock %}><a href="testimonials.html">Testimonials</a></li>
-            <li {% block prinipal_vue4 %}{% endblock %}><a href="projects.html">Projects</a></li>
-            <li {% block prinipal_vue5 %}{% endblock %}><a href="contact.html">Contact Us</a></li>
+            <li {% block prinipal_vue1 %}{% endblock %}><a href="{{path('dla_istudent_welcome_homepage')}}">Accueil</a></li>
+            <li {% block prinipal_vue2 %}{% endblock %}><a href="ourwork.html">Pr&eacute;sentations</a></li>
+            <li {% block prinipal_vue3 %}{% endblock %}><a href="testimonials.html">Forums</a></li>
+            <li {% block prinipal_vue4 %}{% endblock %}><a href="projects.html">Blogs</a></li>
+            <li {% block prinipal_vue5 %}{% endblock %}><a href="contact.html">Administration</a></li>
           </ul>
 		</div><!--close menubar-->	
       </nav>

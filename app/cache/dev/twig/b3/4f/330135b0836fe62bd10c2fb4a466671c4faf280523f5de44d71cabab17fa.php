@@ -10,6 +10,7 @@ class __TwigTemplate_b34f330135b0836fe62bd10c2fb4a466671c4faf280523f5de44d71caba
         $this->parent = $this->env->loadTemplate("DlaIstudentWelcomeBundle::template.html.twig");
 
         $this->blocks = array(
+            'prinipal_vue1' => array($this, 'block_prinipal_vue1'),
             'title_navigation1' => array($this, 'block_title_navigation1'),
             'content_navigation1' => array($this, 'block_content_navigation1'),
         );
@@ -26,18 +27,24 @@ class __TwigTemplate_b34f330135b0836fe62bd10c2fb4a466671c4faf280523f5de44d71caba
     }
 
     // line 2
+    public function block_prinipal_vue1($context, array $blocks = array())
+    {
+        echo "class=\"current\"";
+    }
+
+    // line 3
     public function block_title_navigation1($context, array $blocks = array())
     {
         echo "Explore";
     }
 
-    // line 3
+    // line 4
     public function block_content_navigation1($context, array $blocks = array())
     {
-        // line 4
+        // line 5
         echo "    <ul>
         <li><a href=\"";
-        // line 5
+        // line 6
         echo $this->env->getExtension('routing')->getPath("dla_istudent_user_homepage");
         echo "\">new account</a></li>
     </ul>
@@ -56,6 +63,6 @@ class __TwigTemplate_b34f330135b0836fe62bd10c2fb4a466671c4faf280523f5de44d71caba
 
     public function getDebugInfo()
     {
-        return array (  41 => 5,  38 => 4,  35 => 3,  29 => 2,);
+        return array (  48 => 6,  45 => 5,  42 => 4,  36 => 3,  30 => 2,);
     }
 }

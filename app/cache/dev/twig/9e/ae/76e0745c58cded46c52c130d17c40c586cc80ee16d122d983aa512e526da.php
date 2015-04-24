@@ -62,23 +62,25 @@ class __TwigTemplate_9eae76e0745c58cded46c52c130d17c40c586cc80ee16d122d983aa512e
             <li ";
         // line 22
         $this->displayBlock('prinipal_vue1', $context, $blocks);
-        echo "><a href=\"index.html\">Home</a></li>
+        echo "><a href=\"";
+        echo $this->env->getExtension('routing')->getPath("dla_istudent_welcome_homepage");
+        echo "\">Accueil</a></li>
             <li ";
         // line 23
         $this->displayBlock('prinipal_vue2', $context, $blocks);
-        echo "><a href=\"ourwork.html\">Our Work</a></li>
+        echo "><a href=\"ourwork.html\">Pr&eacute;sentations</a></li>
             <li ";
         // line 24
         $this->displayBlock('prinipal_vue3', $context, $blocks);
-        echo "><a href=\"testimonials.html\">Testimonials</a></li>
+        echo "><a href=\"testimonials.html\">Forums</a></li>
             <li ";
         // line 25
         $this->displayBlock('prinipal_vue4', $context, $blocks);
-        echo "><a href=\"projects.html\">Projects</a></li>
+        echo "><a href=\"projects.html\">Blogs</a></li>
             <li ";
         // line 26
         $this->displayBlock('prinipal_vue5', $context, $blocks);
-        echo "><a href=\"contact.html\">Contact Us</a></li>
+        echo "><a href=\"contact.html\">Administration</a></li>
           </ul>
 \t\t</div><!--close menubar-->\t
       </nav>
@@ -128,7 +130,6 @@ class __TwigTemplate_9eae76e0745c58cded46c52c130d17c40c586cc80ee16d122d983aa512e
     // line 22
     public function block_prinipal_vue1($context, array $blocks = array())
     {
-        echo "class=\"current\"";
     }
 
     // line 23
@@ -300,6 +301,6 @@ class __TwigTemplate_9eae76e0745c58cded46c52c130d17c40c586cc80ee16d122d983aa512e
 
     public function getDebugInfo()
     {
-        return array (  281 => 96,  278 => 95,  270 => 90,  266 => 89,  262 => 88,  258 => 87,  254 => 86,  250 => 84,  247 => 83,  236 => 73,  233 => 72,  223 => 65,  220 => 64,  210 => 57,  207 => 56,  196 => 48,  193 => 47,  183 => 40,  180 => 39,  175 => 81,  172 => 72,  169 => 64,  166 => 56,  163 => 47,  161 => 39,  158 => 38,  155 => 37,  150 => 26,  145 => 25,  140 => 24,  135 => 23,  129 => 22,  120 => 115,  116 => 114,  104 => 104,  102 => 95,  99 => 94,  96 => 83,  94 => 37,  80 => 26,  76 => 25,  72 => 24,  68 => 23,  64 => 22,  51 => 12,  46 => 10,  42 => 9,  32 => 1,);
+        return array (  282 => 96,  279 => 95,  271 => 90,  267 => 89,  263 => 88,  259 => 87,  255 => 86,  251 => 84,  248 => 83,  237 => 73,  234 => 72,  224 => 65,  221 => 64,  211 => 57,  208 => 56,  197 => 48,  194 => 47,  184 => 40,  181 => 39,  176 => 81,  173 => 72,  170 => 64,  167 => 56,  164 => 47,  162 => 39,  159 => 38,  156 => 37,  151 => 26,  146 => 25,  141 => 24,  136 => 23,  131 => 22,  122 => 115,  118 => 114,  106 => 104,  104 => 95,  101 => 94,  98 => 83,  96 => 37,  82 => 26,  78 => 25,  74 => 24,  70 => 23,  64 => 22,  51 => 12,  46 => 10,  42 => 9,  32 => 1,);
     }
 }
